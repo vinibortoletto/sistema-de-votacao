@@ -31,7 +31,11 @@ java -cp bin com.sistemadevotacao.Principal
 
 ```
 
-<br /><hr /><br />
+## Contato
+[Portfolio](https://vinibortoletto.vercel.app/) | 
+[LinkedIn](https://www.linkedin.com/in/vinicius-bortoletto/)
+
+<!-- <br /><hr /><br />
 
 <p align="center">
   Criado e desenvolvido por <b>Vinicius Bortoletto</b>
@@ -46,3 +50,4 @@ java -cp bin com.sistemadevotacao.Principal
   </a>
   &nbsp;&nbsp;
 </p>
+ -->
