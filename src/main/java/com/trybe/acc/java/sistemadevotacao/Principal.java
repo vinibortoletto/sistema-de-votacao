@@ -50,12 +50,36 @@ public class Principal {
     }
   }
 
+  private static void votar(Scanner scanner) {
+    System.out.println("Entre com o cpf da pessoa eleitora:");
+    String cpf = scanner.next();
+
+    System.out.println("Entre com o número da pessoa candidata:");
+    String nomePessoaCandidata = scanner.next();
+  }
+
+  private static void executaProximoPasso(Scanner scanner) {
+    perguntaProximoPasso();
+    short proximoPasso = scanner.nextShort();
+
+    while (proximoPasso != 3) {
+      if (proximoPasso == 1) {
+        votar(scanner);
+        perguntaProximoPasso();
+        proximoPasso = scanner.nextShort();
+      } else if (proximoPasso == 2) {
+
+      }
+    }
+  }
+
   public static void main(String[] args) {
     GerenciamentoVotacao gerenciamentoVotacao = new GerenciamentoVotacao();
     Scanner scanner = new Scanner(System.in);
 
     cadastraPessoaCandidata(scanner);
     cadastraPessoaEleitora(scanner);
+    executaProximoPasso(scanner);
 
     scanner.close();
   }
