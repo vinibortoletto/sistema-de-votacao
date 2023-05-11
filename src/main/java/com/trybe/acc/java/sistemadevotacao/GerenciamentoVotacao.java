@@ -69,6 +69,7 @@ public class GerenciamentoVotacao {
       }
     }
 
+    totalVotos += 1;
     cpfComputado.add(cpfPessoaEleitora);
   }
 
@@ -87,7 +88,7 @@ public class GerenciamentoVotacao {
     for (int i = 0; i < pessoasCandidatas.size(); i++) {
       System.out.println(
           String.format(
-            "Nome: %s - %d votos ( %d )", 
+            "Nome: %s - %d votos ( %f%% )", 
             pessoasCandidatas.get(i).getNome(),
             pessoasCandidatas.get(i).getVotos(), 
             calcularPorcentagemVotos(i)
@@ -100,7 +101,7 @@ public class GerenciamentoVotacao {
 
   private double calcularPorcentagemVotos(int indice) {
     PessoaCandidata pessoaCandidata = pessoasCandidatas.get(indice);
-    double porcentagemDeVotos = Math.round(pessoaCandidata.getVotos() / totalVotos);
-    return porcentagemDeVotos;
+    double porcentagemDeVotos = (pessoaCandidata.getVotos() * 100) / totalVotos;
+    return Math.round(porcentagemDeVotos);
   }
 }
