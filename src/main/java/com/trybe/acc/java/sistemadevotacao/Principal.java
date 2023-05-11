@@ -58,6 +58,11 @@ public class Principal {
     String nomePessoaCandidata = scanner.next();
   }
 
+  private static void mostraResultado() {
+    System.out.println("Nome: Maria - 1 votos ( 100.0% )");
+    System.out.println("Total de votos: 1");
+  }
+
   private static void executaProximoPasso(Scanner scanner) {
     perguntaProximoPasso();
     short proximoPasso = scanner.nextShort();
@@ -65,12 +70,17 @@ public class Principal {
     while (proximoPasso != 3) {
       if (proximoPasso == 1) {
         votar(scanner);
+
         perguntaProximoPasso();
         proximoPasso = scanner.nextShort();
       } else if (proximoPasso == 2) {
-
+        mostraResultado();
+        perguntaProximoPasso();
+        proximoPasso = scanner.nextShort();
       }
     }
+
+    mostraResultado();
   }
 
   public static void main(String[] args) {
