@@ -10,14 +10,6 @@ public class GerenciamentoVotacao {
   private ArrayList<String> cpfComputado;
   private int totalVotos;
 
-  public GerenciamentoVotacao(ArrayList<PessoaCandidata> pessoasCandidatas,
-      ArrayList<PessoaEleitora> pessoasEleitoras, ArrayList<String> cpfComputado, int totalVotos) {
-    this.pessoasCandidatas = pessoasCandidatas;
-    this.pessoasEleitoras = pessoasEleitoras;
-    this.cpfComputado = cpfComputado;
-    this.totalVotos = totalVotos;
-  }
-
   public void cadastrarPessoaCandidata(String nome, int numero) {
     PessoaCandidata pessoaCandidata = new PessoaCandidata(nome, numero);
     boolean pessoaCandidataExiste = pessoasCandidatas.contains(pessoaCandidata);
@@ -65,16 +57,13 @@ public class GerenciamentoVotacao {
       return;
     }
 
-    for (PessoaCandidata pessoaCandidata : pessoasCandidatas) {
-      DecimalFormat df = new DecimalFormat("0.0%");
-      String porcentagemDeVotos = df.format(totalVotos / pessoaCandidata.getVotos());
-
+    for (int i = 0; i < pessoasCandidatas.size(); i++) {
       System.out.println(
           String.format(
             "Nome: %s - %d votos ( %d )", 
-            pessoaCandidata.getNome(),
-            pessoaCandidata.getVotos(), 
-            porcentagemDeVotos
+            pessoasCandidatas.get(i).getNome(),
+            pessoasCandidatas.get(i).getVotos(), 
+            calcularPorcentagemVotos(i)
           )
       );
     }
@@ -82,5 +71,9 @@ public class GerenciamentoVotacao {
     System.out.println(String.format("Total de votos: %d", totalVotos));
   }
 
-
+  private double calcularPorcentagemVotos(int indice) {
+    PessoaCandidata pessoaCandidata = pessoasCandidatas.get(indice);
+    double porcentagemDeVotos = Math.round(pessoaCandidata.getVotos() / totalVotos);
+    return porcentagemDeVotos;
+  }
 }
