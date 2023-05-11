@@ -31,6 +31,8 @@ java -cp bin com.sistemadevotacao.Principal
 
 ```
 
+<br /><hr /><br />
+
 <p align="center">
   Criado e desenvolvido por <b>Vinicius Bortoletto</b>
   <br/><br/>
