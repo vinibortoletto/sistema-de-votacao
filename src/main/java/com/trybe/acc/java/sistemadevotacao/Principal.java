@@ -2,8 +2,10 @@ package com.trybe.acc.java.sistemadevotacao;
 
 import java.util.Scanner;
 
+/**
+ * Classe principal responsável por controlar o sistema de votação.
+ */
 public class Principal {
-  
   private static void perguntaSeQuerCadastrar(String pessoa) {
     System.out.println(String.format("Cadastrar pessoa %s?", pessoa));
     System.out.println("1 - Sim");
@@ -95,6 +97,9 @@ public class Principal {
     gerenciamentoVotacao.mostrarResultado();
   }
 
+  /**
+   * Método principal que inicia o sistema de votação.
+   */
   public static void main(String[] args) {
     GerenciamentoVotacao gerenciamentoVotacao = new GerenciamentoVotacao();
     Scanner scanner = new Scanner(System.in);
@@ -105,5 +110,4 @@ public class Principal {
 
     scanner.close();
   }
-
 }
