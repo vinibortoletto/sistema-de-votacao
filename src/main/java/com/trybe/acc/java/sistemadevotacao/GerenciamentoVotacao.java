@@ -45,5 +45,22 @@ public class GerenciamentoVotacao {
     pessoasEleitoras.add(pessoaEleitora);
   }
 
-  
+  public void votar(String cpfPessoaEleitora, int numeroPessoaCandidata) {
+    boolean cpfExiste = cpfComputado.contains(cpfPessoaEleitora);
+
+    if (cpfExiste) {
+      System.out.println("Pessoa eleitora já votou!");
+      return;
+    }
+
+    for (PessoaCandidata pessoaCandidata : pessoasCandidatas) {
+      if (numeroPessoaCandidata == pessoaCandidata.getNumero()) {
+        pessoaCandidata.receberVoto();
+      }
+    }
+
+    cpfComputado.add(cpfPessoaEleitora);
+  }
+
+ 
 }
