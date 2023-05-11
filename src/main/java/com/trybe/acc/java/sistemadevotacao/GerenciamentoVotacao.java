@@ -1,13 +1,11 @@
 package com.trybe.acc.java.sistemadevotacao;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GerenciamentoVotacao {
-  private ArrayList<PessoaCandidata> pessoasCandidatas;
-  private ArrayList<PessoaEleitora> pessoasEleitoras;
-  private ArrayList<String> cpfComputado;
+  private ArrayList<PessoaCandidata> pessoasCandidatas = new ArrayList<PessoaCandidata>();
+  private ArrayList<PessoaEleitora> pessoasEleitoras = new ArrayList<PessoaEleitora>();
+  private ArrayList<String> cpfComputado = new ArrayList<String>();
   private int totalVotos;
 
   public void cadastrarPessoaCandidata(String nome, int numero) {
