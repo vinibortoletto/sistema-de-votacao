@@ -18,15 +18,16 @@ public class GerenciamentoVotacao {
    * @param numero Número da pessoa candidata.
    */
   public void cadastrarPessoaCandidata(String nome, int numero) {
-    PessoaCandidata pessoaCandidata = new PessoaCandidata(nome, numero);
-    boolean pessoaCandidataExiste = pessoasCandidatas.contains(pessoaCandidata);
-
+    boolean pessoaCandidataExiste = pessoasCandidatas
+        .stream()
+        .anyMatch(pessoa -> pessoa.getNumero() == numero);
+    
     if (pessoaCandidataExiste) {
       System.out.println("Número pessoa candidata já utilizado!");
       return;
     }
-
-    pessoasCandidatas.add(pessoaCandidata);
+    
+    pessoasCandidatas.add(new PessoaCandidata(nome, numero));
   }
 
   /**
@@ -36,15 +37,16 @@ public class GerenciamentoVotacao {
    * @param cpf  CPF da pessoa eleitora.
    */
   public void cadastrarPessoaEleitora(String nome, String cpf) {
-    PessoaEleitora pessoaEleitora = new PessoaEleitora(nome, cpf);
-    boolean pessoaEleitoraExiste = pessoasEleitoras.contains(pessoaEleitora);
-
+    boolean pessoaEleitoraExiste = pessoasEleitoras
+        .stream()
+        .anyMatch(pessoa -> pessoa.getCpf().equals(cpf));
+    
     if (pessoaEleitoraExiste) {
       System.out.println("Pessoa eleitora já cadastrada!");
       return;
     }
 
-    pessoasEleitoras.add(pessoaEleitora);
+    pessoasEleitoras.add(new PessoaEleitora(nome, cpf));
   }
 
   /**
