@@ -32,4 +32,18 @@ public class GerenciamentoVotacao {
 
     pessoasCandidatas.add(pessoaCandidata);
   }
+
+  public void cadastrarPessoaEleitora(String nome, String cpf) {
+    PessoaEleitora pessoaEleitora = new PessoaEleitora(nome, cpf);
+    boolean pessoaEleitoraExiste = pessoasEleitoras.contains(pessoaEleitora);
+
+    if (pessoaEleitoraExiste) {
+      System.out.println("Pessoa eleitora já cadastrada!");
+      return;
+    }
+
+    pessoasEleitoras.add(pessoaEleitora);
+  }
+
+  
 }
