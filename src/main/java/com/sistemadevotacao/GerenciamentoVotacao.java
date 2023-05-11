@@ -1,4 +1,4 @@
-package com.trybe.acc.java.sistemadevotacao;
+package com.sistemadevotacao;
 
 import java.util.ArrayList;
 

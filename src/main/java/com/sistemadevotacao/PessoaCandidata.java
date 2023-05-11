@@ -1,4 +1,4 @@
-package com.trybe.acc.java.sistemadevotacao;
+package com.sistemadevotacao;
 
 /**
  * Classe que representa uma pessoa candidata em um sistema de votação.
