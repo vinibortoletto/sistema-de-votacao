@@ -20,5 +20,16 @@ public class GerenciamentoVotacao {
     this.cpfComputado = cpfComputado;
     this.totalVotos = totalVotos;
   }
-  
+
+  public void cadastrarPessoaCandidata(String nome, int numero) {
+    PessoaCandidata pessoaCandidata = new PessoaCandidata(nome, numero);
+    boolean pessoaCandidataExiste = pessoasCandidatas.contains(pessoaCandidata);
+
+    if (pessoaCandidataExiste) {
+      System.out.println("Número pessoa candidata já utilizado!");
+      return;
+    }
+
+    pessoasCandidatas.add(pessoaCandidata);
+  }
 }
