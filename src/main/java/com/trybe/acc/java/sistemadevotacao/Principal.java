@@ -4,26 +4,49 @@ import java.util.Scanner;
 
 public class Principal {
 
-  private static void perguntaSeQuerCadastrarCandidato() {
-    System.out.println("Cadastrar pessoa candidata?");
+  private static void perguntaSeQuerCadastrar(String pessoa) {
+    System.out.println(String.format("Cadastrar pessoa %s?", pessoa));
     System.out.println("1 - Sim");
     System.out.println("2 - Não");
     System.out.println("Entre com o número correspondente à opção desejada:");
   }
 
-  private static void cadastraCandidato(Scanner scanner) {
-    perguntaSeQuerCadastrarCandidato();
-    short estaCadastrandoCandidato = scanner.nextShort();
+  private static void perguntaProximoPasso() {
+    System.out.println("Entre com o número correspondente à opção desejada:");
+    System.out.println("1 - Votar");
+    System.out.println("2 - Resultado Parcial");
+    System.out.println("3 - Finalizar Votação");
+  }
 
-    while (estaCadastrandoCandidato == 1) {
+  private static void cadastraPessoaCandidata(Scanner scanner) {
+    perguntaSeQuerCadastrar("candidata");
+    short estaCadastrando = scanner.nextShort();
+
+    while (estaCadastrando == 1) {
       System.out.println("Entre com o nome da pessoa candidata:");
-      String nomeDoCandidato = scanner.next();
+      String nomePessoaCandidata = scanner.next();
 
       System.out.println("Entre com o número da pessoa candidata:");
-      String numeroDoCandidato = scanner.next();
+      String numeroPessoaCandidata = scanner.next();
 
-      perguntaSeQuerCadastrarCandidato();
-      estaCadastrandoCandidato = scanner.nextShort();
+      perguntaSeQuerCadastrar("candidata");
+      estaCadastrando = scanner.nextShort();
+    }
+  }
+
+  private static void cadastraPessoaEleitora(Scanner scanner) {
+    perguntaSeQuerCadastrar("eleitora");
+    short estaCadastrando = scanner.nextShort();
+
+    while (estaCadastrando == 1) {
+      System.out.println("Entre com o nome da pessoa eleitora:");
+      String nomePessoaEleitora = scanner.next();
+
+      System.out.println("Entre com o cpf da pessoa eleitora:");
+      String numeroPessoaEleitora = scanner.next();
+
+      perguntaSeQuerCadastrar("candidata");
+      estaCadastrando = scanner.nextShort();
     }
   }
 
@@ -31,7 +54,8 @@ public class Principal {
     GerenciamentoVotacao gerenciamentoVotacao = new GerenciamentoVotacao();
     Scanner scanner = new Scanner(System.in);
 
-    cadastraCandidato(scanner);
+    cadastraPessoaCandidata(scanner);
+    cadastraPessoaEleitora(scanner);
 
     scanner.close();
   }
